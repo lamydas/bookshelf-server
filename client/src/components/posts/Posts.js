@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PostItem from './PostItem';
 import PostForm from './PostForm';
-import { getPosts } from '../../actions/post';
+import { getPosts } from '../../redux/actions/postAction';
 
 const Posts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
@@ -32,7 +32,7 @@ Posts.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  post: state.post
+  post: state.postReducer
 });
 
 export default connect(mapStateToProps, { getPosts })(Posts);

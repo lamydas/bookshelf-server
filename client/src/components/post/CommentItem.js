@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import formatDate from '../../utils/formatDate';
-import { deleteComment } from '../../actions/post';
+import { deleteComment } from '../../redux/actions/postAction';
 
 const CommentItem = ({
   postId,
@@ -42,7 +42,7 @@ CommentItem.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.authReducer
 });
 
 export default connect(mapStateToProps, { deleteComment })(CommentItem);

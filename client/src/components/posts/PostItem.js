@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formatDate from '../../utils/formatDate';
 import { connect } from 'react-redux';
-import { addLike, removeLike, deletePost } from '../../actions/post';
+import { addLike, removeLike, deletePost } from '../../redux/actions/postAction';
 
 const PostItem = ({
   addLike,
@@ -76,7 +76,7 @@ PostItem.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.authReducer
 });
 
 export default connect(mapStateToProps, { addLike, removeLike, deletePost })(

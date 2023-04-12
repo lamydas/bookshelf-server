@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Spinner from '../layout/Spinner';
+import Spinner from '../layouts/Spinner';
 import PostItem from '../posts/PostItem';
-import CommentForm from '../post/CommentForm';
-import CommentItem from '../post/CommentItem';
-import { getPost } from '../../actions/post';
+import CommentForm from './CommentForm';
+import CommentItem from './CommentItem';
+import { getPost } from '../../redux/actions/postAction';
 
 const Post = ({ getPost, post: { post, loading } }) => {
   const { id } = useParams();
@@ -38,7 +38,7 @@ Post.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  post: state.post
+  post: state.postReducer
 });
 
 export default connect(mapStateToProps, { getPost })(Post);
